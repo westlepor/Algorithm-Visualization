@@ -1,0 +1,36 @@
+.symbol-index {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.symbol-index-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.symbol-index-item{
+    margin-left: 20px;
+}
+.far .fas {
+    right: 1px;
+}
+
+.instruction{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.visited-tile-symbol .fa-square {
+    color: rgb(31, 82, 190);
+}
+
+.wall-tile-symbol .fa-square {
+    color: rgb(17, 9, 95);
+}

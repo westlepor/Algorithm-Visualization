@@ -1,0 +1,136 @@
+.board {
+  background-color: #ececec;
+  display: flex;
+  width: 100%;
+  height: 105%;
+  overflow: hidden;
+  justify-content: center;
+  margin-top: -5%;
+}
+
+.board-container {
+  -webkit-perspective: 1500px; 
+  perspective: 1500px;
+
+}
+
+.grid-items{
+  width: 49.5rem;
+  height: 49.5rem;
+  /* box-shadow: 1px 1px black; */
+  /* -webkit-box-shadow: 0 0 1px black; */
+  box-shadow: 0 0 0.2rem black;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.grid-item {
+  width: 1.5rem;
+  height: 1.5rem;
+  float: left;
+  margin: 0 0.15rem 0.15rem 0;
+  cursor:pointer;
+  position: relative;
+}
+
+.grid-item:before{
+    position:absolute;
+    content:'';
+    width:1.5rem;
+    height:1.5rem;
+    background:white;
+
+    -webkit-transition: all 0.3s; 
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+
+.grid-item:hover:before{
+  background:#eccc3d;
+  -webkit-transform: translate3d(0,0,0.5rem);
+  transform: translate3d(0,0,0.5rem);
+  box-shadow:30px 30px 10px rgba(0,0,0,0.5);
+}
+
+.origin-marker, .destination-marker {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50% 50% 50% 50%;
+  position: absolute;
+  transform: translate3d(0,0,20px);
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+}
+.origin-marker {
+  background: red;
+}
+
+.destination-marker {
+  background: #269ccc;
+}
+
+.origin-pulsate:after, .destination-pulsate:after {
+  content: "";
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  margin: -1rem 0 0 -1rem;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  animation-delay: 1s;
+  z-index: 98;
+}
+.origin-pulsate:after {
+  box-shadow: 0 0 1px 2px red;
+}
+
+.destination-pulsate:after {
+  box-shadow: 0 0 1px 2px #269ccc;
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  z-index: 100;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0;
+    transform: translateZ(1000px) rotate(-45deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(0px) rotate(-45deg);
+  }
+
+  80% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+}

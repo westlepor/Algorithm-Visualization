@@ -1,0 +1,21 @@
+.start-tile{
+    background-color: red;
+}
+
+.target-tile{
+
+}
+.unvisited-tile{
+    background-color: white;
+}
+.wall-tile{
+    background-color: rgb(17, 9, 95);
+}
+.shortest-path-tile{
+
+}  
+.visited-tile{
+    background-color:rgb(31, 82, 190);
+}
+
+

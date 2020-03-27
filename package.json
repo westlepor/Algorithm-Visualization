@@ -1,0 +1,30 @@
+{
+  "name": "3d-path-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkryucr/3d-path-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkryucr/3d-path-finder/issues"
+  },
+  "homepage": "https://github.com/hkryucr/3d-path-finder#readme",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
+}
