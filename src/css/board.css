@@ -31,8 +31,10 @@
   height: 1.5rem;
   float: left;
   margin: 0 0.15rem 0.15rem 0;
+  /* transform: translate3d(0,0, 0.01px); */
   position: relative;
   background-color: white;
+  cursor: pointer;
 }
 
 .grid-item:before{

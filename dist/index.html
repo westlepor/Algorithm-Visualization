@@ -24,6 +24,13 @@
       </div>
       <ul class="navbar-items">
         <li class="navbar-item"><button class="run-path-finder">Run Path Finder</button></li>
+        <li class="navbar-item">
+          <select class="run-path-select">
+            <option value="BFS">Breadth-first search </option>
+            <option value="DFS">Depth-First Search</option>
+          </select>
+        </li>
+        <li class="navbar-item"><button class="generate-wall">Generate Wall(s)</button></li>
         <li class="navbar-item"><button class="reset-path-finder">Reset</button></li>
       </ul>
     </div>
@@ -41,8 +48,9 @@
         </div>
         <div class="legend-item">
           <i class="fas fa-square" style="color:#de493c;"></i> Visited Node</div>
-        <div class="legend-item"></div>
-        <div class="legend-item"></div>
+        <div class="legend-item">
+          <i class="fas fa-square" style="color:rgb(17, 9, 95);"></i> Wall Node</div>
+
       </div>
     </div>
   </div>

@@ -14,17 +14,17 @@
   background-color: rgb(17, 9, 95);
   -webkit-transition: all 0.3s; 
   transition: all 0.3s;
-     box-shadow: 1px 1px 0px #e2e0d8,
-                2px 2px 0px  #e2e0d8,
-                3px 3px 0px  #e2e0d8,
-                4px 4px 0px  #e2e0d8,
-                5px 5px 0px  #e2e0d8,
-                6px 6px 0px  #e2e0d8,
-                7px 7px 0px  #e2e0d8,
-                8px 8px 0px  #e2e0d8,
-                9px 9px 0px  #e2e0d8,
-                10px 10px 0px  #646464;;
-    transform: translate3d(0,0,0.5rem);
+  box-shadow: 1px 1px 0px #e2e0d8,
+            2px 2px 0px  #e2e0d8,
+            3px 3px 0px  #e2e0d8,
+            4px 4px 0px  #e2e0d8,
+            5px 5px 0px  #e2e0d8,
+            6px 6px 0px  #e2e0d8,
+            7px 7px 0px  #e2e0d8,
+            8px 8px 0px  #e2e0d8,
+            9px 9px 0px  #e2e0d8,
+            10px 10px 0px  #646464;;
+  transform: translate3d(0,0,0.5rem);
 }
 
 .visited:before {
@@ -82,19 +82,16 @@
     height: 100%;
     background: rgb(255, 208, 1);
     border: 1px solid #646464;
-    /* border-radius: 100%; */
-    /* box-shadow: 0 0 0.5rem rgb(53, 53, 53);
-     */
-     box-shadow: 1px 1px 0px #e2e0d8,
-                2px 2px 0px  #e2e0d8,
-                3px 3px 0px  #e2e0d8,
-                4px 4px 0px  #e2e0d8,
-                5px 5px 0px  #e2e0d8,
-                6px 6px 0px  #e2e0d8,
-                7px 7px 0px  #e2e0d8,
-                8px 8px 0px  #e2e0d8,
-                9px 9px 0px  #e2e0d8,
-                10px 10px 0px  #646464;;
+    box-shadow: 1px 1px 0px #e2e0d8,
+              2px 2px 0px  #e2e0d8,
+              3px 3px 0px  #e2e0d8,
+              4px 4px 0px  #e2e0d8,
+              5px 5px 0px  #e2e0d8,
+              6px 6px 0px  #e2e0d8,
+              7px 7px 0px  #e2e0d8,
+              8px 8px 0px  #e2e0d8,
+              9px 9px 0px  #e2e0d8,
+              10px 10px 0px  #646464;;
     transform: translate3d(0,0,0.5rem);
 
     -webkit-transition: all 0.3s; 
