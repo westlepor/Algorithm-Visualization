@@ -16,7 +16,7 @@
 .navbar-header-title{
     color: black;
     font-size: 1.5rem;
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 .navbar-items{
     display: flex;
@@ -30,16 +30,43 @@
     font-size: 1rem;
 }
 
-.run-button{
+.run-path-finder{
+    display: inline-block;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    background: #dfdfdf;
+    background: white;
+    border: 1px solid white;
     padding: 8px;
     border-radius: 5px;
-    display: inline-block;
     border: none;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
 }
 
-.run-button:hover{
+.run-path-finder:hover{
+    background: #dfdfdf;
+    padding: 8px;
+    border: 1px solid #ffffff;
+}
+
+
+.reset-path-finder{
+    text-transform: uppercase;
     background: white;
+    font-size: 0.8rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    display: inline-block;
+    border: none;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+}
+
+.reset-path-finder:hover{
+    background: #dfdfdf;
+    border: 1px solid #ffffff;
     padding: 8px;
 }

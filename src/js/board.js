@@ -22,26 +22,39 @@ class Board {
                 cell.id = `${i}-${j}`;
 
                 if (i === originX && j == originY){
+                    const origin = document.createElement('div');
+                    origin.id = 'origin';
+                    cell.appendChild(origin);
+
                     const originPin = document.createElement('div');
                     originPin.className = 'origin-marker bounce';
-                    cell.appendChild(originPin);
+                    origin.appendChild(originPin);
     
                     const originPulse = document.createElement('div');
                     originPulse.className = 'origin-pulsate';
-                    cell.appendChild(originPulse);
+                    origin.appendChild(originPulse);
                 }
 
                 if (i === destX && j == destY) {
-                    const pin = document.createElement('div');
-                    pin.className = 'destination-marker bounce';
-                    cell.appendChild(pin);
+                    const destination = document.createElement('div');
+                    destination.id = 'destination';
+                    cell.appendChild(destination);
 
-                    const pulse = document.createElement('div');
-                    pulse.className = 'destination-pulsate';
-                    cell.appendChild(pulse);
+                    const destinationPin = document.createElement('div');
+                    destinationPin.className = 'destination-marker bounce';
+                    destination.appendChild(destinationPin);
+
+                    const destinationPulse = document.createElement('div');
+                    destinationPulse.className = 'destination-pulsate';
+                    destination.appendChild(destinationPulse);
                 }
             }
         };
+    }
+
+    removeChildNodes(){
+        const container = document.getElementsByClassName('board-container')[0]
+        container.removeChild(container.lastChild);
     }
 
     addSomeTilesClasses() {

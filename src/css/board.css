@@ -6,22 +6,22 @@
   overflow: hidden;
   justify-content: center;
   margin-top: -5%;
+  z-index: -1;
 }
 
 .board-container {
   -webkit-perspective: 1500px; 
   perspective: 1500px;
-
 }
 
 .grid-items{
   width: 49.5rem;
   height: 49.5rem;
-  /* box-shadow: 1px 1px black; */
-  /* -webkit-box-shadow: 0 0 1px black; */
+  background-color: #ececec;  
+  border: 1px solid black;
   box-shadow: 0 0 0.2rem black;
   -webkit-transform: rotateZ(0deg);
-  transform: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+  transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
@@ -31,8 +31,8 @@
   height: 1.5rem;
   float: left;
   margin: 0 0.15rem 0.15rem 0;
-  cursor:pointer;
   position: relative;
+  background-color: white;
 }
 
 .grid-item:before{
@@ -47,13 +47,6 @@
     pointer-events: none;
   }
 
-.grid-item:hover:before{
-  background:#eccc3d;
-  -webkit-transform: translate3d(0,0,0.5rem);
-  transform: translate3d(0,0,0.5rem);
-  box-shadow:30px 30px 10px rgba(0,0,0,0.5);
-}
-
 .origin-marker, .destination-marker {
   width: 0.8rem;
   height: 0.8rem;
@@ -62,13 +55,39 @@
   transform: translate3d(0,0,20px);
   margin-top: 0.2rem;
   margin-left: 0.2rem;
+  cursor:pointer;
+  transform: translateY(0) rotate(-45deg);
 }
+
 .origin-marker {
-  background: red;
+  background: #de493c;
 }
 
 .destination-marker {
   background: #269ccc;
+}
+
+#origin, #destination {
+  cursor: pointer;
+}
+
+.origin-marker-ran {
+  background: #de493c;
+  transform: translate3d(0,0,0.5rem);
+  /* border: 1px solid #ffffff3f; */
+  box-shadow: 1px 1px 0px #de493c,
+              2px 2px 0px  #de493c,
+              3px 3px 0px  #de493c,
+              4px 4px 0px  #de493c
+}
+
+.destination-marker-ran {
+  background: #269ccc;
+  transform: translate3d(0,0,0.5rem);
+  box-shadow: 1px 1px 0px #269ccc,
+              2px 2px 0px  #269ccc,
+              3px 3px 0px  #269ccc,
+              4px 4px 0px  #269ccc
 }
 
 .origin-pulsate:after, .destination-pulsate:after {
@@ -82,10 +101,11 @@
   animation-iteration-count: infinite;
   opacity: 0;
   animation-delay: 1s;
-  z-index: 98;
+  z-index: 10;
 }
+
 .origin-pulsate:after {
-  box-shadow: 0 0 1px 2px red;
+  box-shadow: 0 0 1px 2px #de493c;
 }
 
 .destination-pulsate:after {
@@ -96,7 +116,7 @@
   animation-name: bounce;
   animation-fill-mode: both;
   animation-duration: 1s;
-  z-index: 100;
+  z-index: 10;
 }
 
 @keyframes pulsate {
@@ -115,22 +135,11 @@
   }
 }
 
-@keyframes bounce {
-  0% {
-    opacity: 0;
-    transform: translateZ(1000px) rotate(-45deg);
-  }
 
-  60% {
-    opacity: 1;
-    transform: translateY(0px) rotate(-45deg);
-  }
-
-  80% {
-    transform: translateY(0px) rotate(-45deg);
-  }
-
-  100% {
-    transform: translateY(0) rotate(-45deg);
-  }
+/* .grid-item:hover:before{
+  background:#eccc3d;
+  -webkit-transform: translate3d(0,0,0.5rem);
+  transform: translate3d(0,0,0.5rem);
+  box-shadow:30px 30px 10px rgba(0,0,0,0.5);
 }
+ */
