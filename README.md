@@ -1,6 +1,6 @@
 # 3D Path Finder(Algorithm Visualization)
 
-Check out the live app
+Check out the live app(https://hkryucr.github.io/3d-path-finder/)
 
 3D Path Finder is an interactive algorithm visualization. This app allows you to select start and ending points, to choose different types of path finder algorithms the statistics, create random wall(s) and run the visualizer.
 
