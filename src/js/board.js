@@ -56,18 +56,6 @@ class Board {
         const container = document.getElementsByClassName('board-container')[0]
         container.removeChild(container.lastChild);
     }
-
-    addSomeTilesClasses() {
-        const classes = ['start-tile', 'target-tile', 'unvisited-tile', 'wall-tile', 'shortest-path-tile', 'visited-tile'];
-
-        for (let i = 0; i < this.rowLen; i += 3) {
-            for (let j = 0; j < this.colLen; j += 3) {
-                const curEl = document.getElementById(`${i}-${j}`);
-                // const ranNum = (Math.floor((Math.random() * 10) / 1));
-                // curEl.classList.add(classes[ranNum]);
-            }
-        }
-    }
 }
 
 module.exports = Board;

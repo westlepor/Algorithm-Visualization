@@ -1,4 +1,3 @@
-
 class DFS {
     constructor(root, endPos) {
         this.root = root;
@@ -7,7 +6,6 @@ class DFS {
         this.travelPath = [];
     }
 
-    // returns the node where the end point is!
     depthFirstSearch() {
         let queue = [this.root];
         let endTile;

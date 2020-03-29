@@ -13,7 +13,9 @@ class Run {
     this.grid = new Grid(30, 30);
     this.board.makeRows(this.origin, this.destination);
     this.algorithm = "BFS";
+    this.speed = "fast";
     this.selectAlgorithm();
+    this.selectSpeed();
     this.makeDraggablePoints();
     this.runPathFinder();
     this.resetPathFinder();
@@ -29,6 +31,13 @@ class Run {
   selectAlgorithm() {
     document.getElementsByClassName("run-path-select")[0].onchange = (e)=>{
       this.algorithm = e.target.value;
+    };
+  }
+
+  selectSpeed() {
+    document.getElementsByClassName("run-path-speed")[0].onchange = (e) => {
+      console.log(e.target.value, "speed")
+      this.speed = e.target.value;
     };
   }
 
@@ -102,7 +111,6 @@ class Run {
           if (currentNode.classList.contains("visited") || currentNode.classList.contains("shortest-path")){
             return;
           }
-          // console.log(currentNode.classList.contains("wall"))
           if (currentNode.classList.contains("wall")) {
             that.grid.getTile(currentNode.id.split("-")).className = "";
             currentNode.classList.remove("wall");
@@ -131,8 +139,18 @@ class Run {
       } else if (this.algorithm === "DFS") {
         algo = new DFS(tree.startTile, this.destination);
       }
+
+      let speed;
+      if (this.speed === "fast") {
+        speed = 3
+      } else if (this.speed === "normal") {
+        speed = 20
+      } else if (this.speed === "slow"){
+        speed = 40
+      }
+      console.log(speed)
       const travelPath = algo.createPathBack();
-      const visualize = new Visualize(algo.orderedTravesal, travelPath, 4);
+      const visualize = new Visualize(algo.orderedTravesal, travelPath, speed);
       document.getElementById("origin").childNodes[0].className =
         "origin-marker origin-marker-ran bounce";
       document.getElementById("origin").childNodes[1].className = "";

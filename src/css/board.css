@@ -77,7 +77,6 @@
 .origin-marker-ran {
   background: #de493c;
   transform: translate3d(0,0,0.5rem);
-  /* border: 1px solid #ffffff3f; */
   box-shadow: 1px 1px 0px #de493c,
               2px 2px 0px  #de493c,
               3px 3px 0px  #de493c,
@@ -138,11 +137,6 @@
   }
 }
 
+@media only screen and (min-width : 321px) {
 
-/* .grid-item:hover:before{
-  background:#eccc3d;
-  -webkit-transform: translate3d(0,0,0.5rem);
-  transform: translate3d(0,0,0.5rem);
-  box-shadow:30px 30px 10px rgba(0,0,0,0.5);
 }
- */

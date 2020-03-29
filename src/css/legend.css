@@ -2,13 +2,13 @@
     display: flex;
     width: 100%;
     background-color: #ececec;
+    justify-content: space-between;
 }
 
 .legend-container{
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
-    /* border: 1px solid black; */
     margin-left: 3rem;
     position: relative;
     justify-content: right;
@@ -31,4 +31,31 @@
 
 .legend-item i {
     margin-right: 0.7rem;
+}
+
+
+.legend-explanation-container{
+    /* padding-top: 1rem; */
+    padding-top: 2rem;
+    margin-right: 3rem;
+}
+
+.legend-explanation{
+    display: inline-block;
+    font-size: 0.9rem;
+    /* text-transform: uppercase; */
+    background: white;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+}
+
+.legend-explanation:hover{
+    background: #dfdfdf;
+    padding: 8px;
+    border: 1px solid #ffffff;
 }
