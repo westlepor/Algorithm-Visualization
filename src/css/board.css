@@ -17,7 +17,7 @@
 .grid-items{
   width: 49.5rem;
   height: 49.5rem;
-  background-color: #ececec;  
+  background-color: transparent; 
   border: 1px solid black;
   box-shadow: 0 0 0.2rem black;
   -webkit-transform: rotateZ(0deg);
@@ -30,20 +30,21 @@
   width: 1.5rem;
   height: 1.5rem;
   float: left;
-  margin: 0 0.15rem 0.15rem 0;
+  margin: 0 0 0 0;
   /* transform: translate3d(0,0, 0.01px); */
   position: relative;
   background-color: white;
+  border: 0.075rem solid rgba(128, 128, 128, 0.3);
+  box-sizing: content-box;
   cursor: pointer;
 }
 
 .grid-item:before{
     position:absolute;
     content:'';
-    width:1.5rem;
-    height:1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background:white;
-
     -webkit-transition: all 0.3s; 
     transition: all 0.3s;
     pointer-events: none;
