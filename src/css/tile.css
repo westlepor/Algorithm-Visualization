@@ -46,15 +46,20 @@
     opacity: 1;
     background: #D34B08;
   }
+  62% {
+    transform: scale(0.8, 0.8);
+    background: rgb(250, 209, 164);
+    opacity: 1;
+  }
 
   75% {
     transform: scale(0.8, 0.8);
-    background: #E57505;
+    background: rgb(250, 216, 182);
     opacity: 1;
   }
 
   100% {
-    background:#F39A05;
+    background:rgb(255, 177, 42);
     opacity: 1;
   }
 }
