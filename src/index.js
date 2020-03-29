@@ -84,6 +84,7 @@ makeDraggablePoints();
 
 document.getElementsByClassName("run-path-finder")[0].addEventListener('click', (e)=>{
     e.preventDefault();
+    console.log(e)
     const tree = new Tree(grid, origin);
     tree.createTree(tree.startTile);
 
@@ -103,8 +104,9 @@ document.getElementsByClassName("run-path-finder")[0].addEventListener('click', 
     document.getElementById("destination").childNodes[1].className = "";
 
     e.currentTarget.disabled = "disabled";
-    document.getElementsByClassName("reset-path-finder")[0].disabled = 
-    "disabled";
+    document.getElementsByClassName("reset-path-finder")[0].disabled = "disabled";
+    console.log(document.getElementsByClassName("generate-wall"), "greate");
+    document.getElementsByClassName("generate-wall")[0].disabled = "disabled";
 })
 
 const resetPathFinder = function(e){

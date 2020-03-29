@@ -13,8 +13,9 @@ class Visualize {
         const loopStep = () => {
             if (i === this.orderedTravesal.length) {
                 this.visualizeTravelPath();
-                document.getElementsByClassName("run-path-finder")[0].disabled = false
-                document.getElementsByClassName("reset-path-finder")[0].disabled = false
+                document.getElementsByClassName("run-path-finder")[0].disabled = false;
+                document.getElementsByClassName("reset-path-finder")[0].disabled = false;
+                document.getElementsByClassName("generate-wall")[0].disabled = false;
                 return;
             }
             
