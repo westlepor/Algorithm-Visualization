@@ -14,20 +14,19 @@ Visualization created by Kenneth Choi.
 ### Screenshots
 
 ### Technologies
-JavaScript (ES6)
-Webpack
-Babel
-HTML5
-CSS3
+- JavaScript (ES6)
+- Webpack
+- Babel
+- HTML5
+- CSS3
 
 ### Features
-Users can interact with buttons and a board to choose different visualizing options
-Users can randomly generate walls, move starting and ending points, and choose a type of algorithms
-Users can reset the entire board and create a new path finder visualizer
+- Users can interact with buttons and a board to choose different visualizing options
+- Users can randomly generate walls, move starting and ending points, and choose a type of algorithms
+- Users can reset the entire board and create a new path finder visualizer
 
 
 ### Future Plans
 I plan on improving additional features as follows:
-
-Additional path-finding algorithms - swarm algorithm, dijkstra algorithm, etc.
-Customizing 3D View options - users can select x, y, and z angles for the board and tiles
+- Additional path-finding algorithms - swarm algorithm, dijkstra algorithm, etc.
+- Customizing 3D View options - users can select x, y, and z angles for the board and tiles
