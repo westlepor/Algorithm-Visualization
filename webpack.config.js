@@ -1,13 +1,13 @@
-const path = require('path');
+const path = require("path");
 module.exports = {
   context: __dirname,
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js"
   },
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: [".js", ".jsx", "*"]
   },
   module: {
     rules: [
@@ -15,13 +15,13 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           query: {
-            presets: ['@babel/env']
+            presets: ["@babel/env"]
           }
-        },
+        }
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: "source-map"
 };
