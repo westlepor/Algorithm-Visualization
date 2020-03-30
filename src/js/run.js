@@ -36,7 +36,6 @@ class Run {
 
   selectSpeed() {
     document.getElementsByClassName("run-path-speed")[0].onchange = (e) => {
-      console.log(e.target.value, "speed")
       this.speed = e.target.value;
     };
   }
@@ -148,7 +147,7 @@ class Run {
       } else if (this.speed === "slow"){
         speed = 40
       }
-      console.log(speed)
+
       const travelPath = algo.createPathBack();
       const visualize = new Visualize(algo.orderedTravesal, travelPath, speed);
       document.getElementById("origin").childNodes[0].className =
