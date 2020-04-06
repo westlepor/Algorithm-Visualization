@@ -12,6 +12,7 @@ Data provided by World Happiness Report and World Population Review.
 Visualization created by Kenneth Choi.
 
 ### Screenshots
+<img src="https://portfolio-henry.s3-us-west-1.amazonaws.com/Path_Finder.gif" alt="My cool logo"/>
 
 ### Technologies
 - JavaScript (ES6)
