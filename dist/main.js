@@ -352,6 +352,72 @@ module.exports = DFS;
 
 /***/ }),
 
+/***/ "./src/js/dijkstra.js":
+/*!****************************!*\
+  !*** ./src/js/dijkstra.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Dijkstras = /*#__PURE__*/function () {
+  function Dijkstras(root, endPos) {
+    _classCallCheck(this, Dijkstras);
+
+    this.root = root;
+    this.endPos = endPos;
+    this.orderedTravesal = [];
+    this.travelPath = [];
+  }
+
+  _createClass(Dijkstras, [{
+    key: "dijkstrasSearch",
+    value: function dijkstrasSearch() {
+      var queue = [this.root];
+      var endTile;
+
+      while (queue.length > 0) {
+        var curTile = queue.shift();
+        this.orderedTravesal.push(curTile.pos);
+
+        if (curTile.pos.toString() === this.endPos.toString()) {
+          endTile = curTile;
+          break;
+        }
+
+        queue = queue.concat(curTile.children);
+      }
+
+      return endTile;
+    }
+  }, {
+    key: "createPathBack",
+    value: function createPathBack() {
+      var traversal = this.dijkstrasSearch();
+      var currentNode = traversal;
+      this.travelPath.push(currentNode.pos);
+
+      while (currentNode !== this.root) {
+        this.travelPath.push(currentNode.parent.pos);
+        currentNode = currentNode.parent;
+      }
+
+      return this.travelPath;
+    }
+  }]);
+
+  return Dijkstras;
+}();
+
+module.exports = Dijkstras;
+
+/***/ }),
+
 /***/ "./src/js/grid.js":
 /*!************************!*\
   !*** ./src/js/grid.js ***!
@@ -485,6 +551,8 @@ var BFS = __webpack_require__(/*! ./bfs.js */ "./src/js/bfs.js");
 
 var DFS = __webpack_require__(/*! ./dfs.js */ "./src/js/dfs.js");
 
+var Dijkstras = __webpack_require__(/*! ./dijkstra.js */ "./src/js/dijkstra.js");
+
 var Visualize = __webpack_require__(/*! ./visualize.js */ "./src/js/visualize.js");
 
 var Run = /*#__PURE__*/function () {
@@ -532,7 +600,6 @@ var Run = /*#__PURE__*/function () {
       var _this3 = this;
 
       document.getElementsByClassName("run-path-speed")[0].onchange = function (e) {
-        console.log(e.target.value, "speed");
         _this3.speed = e.target.value;
       };
     }
@@ -634,6 +701,8 @@ var Run = /*#__PURE__*/function () {
           algo = new BFS(tree.startTile, _this4.destination);
         } else if (_this4.algorithm === "DFS") {
           algo = new DFS(tree.startTile, _this4.destination);
+        } else if (_this4.algorithm === "dijkstra") {
+          algo = new Dijkstras(tree.startTile, _this4.destination);
         }
 
         var speed;
@@ -646,7 +715,6 @@ var Run = /*#__PURE__*/function () {
           speed = 40;
         }
 
-        console.log(speed);
         var travelPath = algo.createPathBack();
         var visualize = new Visualize(algo.orderedTravesal, travelPath, speed);
         document.getElementById("origin").childNodes[0].className = "origin-marker origin-marker-ran bounce";

@@ -3,6 +3,7 @@ const Grid = require("./grid.js");
 const Tree = require("./tree.js");
 const BFS = require("./bfs.js");
 const DFS = require("./dfs.js");
+const Dijkstras = require("./dijkstra.js");
 const Visualize = require("./visualize.js");
 
 class Run {
@@ -137,6 +138,8 @@ class Run {
         algo = new BFS(tree.startTile, this.destination);
       } else if (this.algorithm === "DFS") {
         algo = new DFS(tree.startTile, this.destination);
+      } else if (this.algorithm === "dijkstra") {
+        algo = new Dijkstras(tree.startTile, this.destination);
       }
 
       let speed;
