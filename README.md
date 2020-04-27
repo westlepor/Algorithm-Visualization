@@ -23,5 +23,5 @@ Check out the live app(https://hkryucr.github.io/3d-path-finder/)
 
 ### Future Plans
 I plan on improving additional features as follows:
-- Additional path-finding algorithms - swarm algorithm, dijkstra algorithm, etc.
+- Additional path-finding algorithms - swarm algorithm, etc.
 - Customizing 3D View options - users can select x, y, and z angles for the board and tiles
