@@ -1,6 +1,7 @@
 const Board = require("./board.js");
 const Grid = require("./grid.js");
 const Tree = require("./tree.js");
+const DijkstraTree = require("./dijkstra_tree.js");
 const BFS = require("./bfs.js");
 const DFS = require("./dfs.js");
 const Dijkstras = require("./dijkstra.js");
@@ -13,7 +14,7 @@ class Run {
     this.board = new Board(30, 30);
     this.grid = new Grid(30, 30);
     this.board.makeRows(this.origin, this.destination);
-    this.algorithm = "BFS";
+    this.algorithm = "dijkstra";
     this.speed = "fast";
     this.selectAlgorithm();
     this.selectSpeed();
@@ -126,7 +127,13 @@ class Run {
   runPathFinder() {
     document.getElementsByClassName("run-path-finder")[0].addEventListener("click", e => {
       e.preventDefault();
-      const tree = new Tree(this.grid, this.origin, this.destination);
+      let tree;
+      if(this.algorithm === "dijkstra"){
+        tree = new DijkstraTree(this.grid, this.origin, this.destination);
+      } else {
+        tree = new Tree(this.grid, this.origin, this.destination);
+      }
+
       tree.createTree(tree.startTile);
       if(tree.solvable === false){
         alert("This is not solvable board. Please move your walls to make it solvable.");

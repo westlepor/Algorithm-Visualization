@@ -418,6 +418,120 @@ module.exports = Dijkstras;
 
 /***/ }),
 
+/***/ "./src/js/dijkstra_tree.js":
+/*!*********************************!*\
+  !*** ./src/js/dijkstra_tree.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var DijkstraTree = /*#__PURE__*/function () {
+  function DijkstraTree(grid, startPos, endPos) {
+    _classCallCheck(this, DijkstraTree);
+
+    this.grid = grid;
+    this.visited = new Set();
+    this.orderedVisit = [];
+    this.startPos = startPos;
+    this.endPos = endPos;
+    this.startTile = this.grid.getTile(this.startPos);
+    this.grid.placeStartTile(this.startPos);
+    this.solvable = false;
+    this.board = this.grid.board;
+    this.distance = {};
+  }
+
+  _createClass(DijkstraTree, [{
+    key: "validPos",
+    value: function validPos(pos) {
+      if (this.grid.getTile(pos).className === "wall") {
+        return false;
+      }
+
+      if (this.grid.validPos(pos) && !this.visited.has(pos.toString())) {
+        return true;
+      }
+
+      return false;
+    }
+  }, {
+    key: "buildDistance",
+    value: function buildDistance() {
+      for (var i = 0; i < this.board.length; i++) {
+        for (var j = 0; j < this.board[0].length; j++) {
+          var curPos = [i, j];
+          this.distance[curPos.toString()] = Infinity;
+        }
+      }
+
+      this.distance[this.startPos.toString()] = 0;
+    }
+  }, {
+    key: "findMinNode",
+    value: function findMinNode(queue) {
+      var minNode = queue[0];
+      var min = this.distance[minNode];
+      var minIdx = 0;
+
+      for (var i = 0; i < queue.length; i++) {
+        var curNode = queue[i];
+
+        if (min > this.distance[curNode]) {
+          minNode = queue[i];
+          minIdx = i;
+          min = this.distance[minNode];
+        }
+      }
+
+      queue.splice(minIdx, 1);
+      return minNode;
+    }
+  }, {
+    key: "createTree",
+    value: function createTree() {
+      this.buildDistance();
+      var queue = [this.startTile];
+      this.visited.add(this.startTile.pos.toString());
+
+      while (queue.length > 0) {
+        var curTile = this.findMinNode(queue);
+        var tiles = this.grid.adjacentTiles(curTile.pos);
+
+        for (var i = 0; i < tiles.length; i++) {
+          if (this.solvable === false && tiles[i].toString() === this.endPos.toString()) {
+            this.solvable = true;
+          }
+
+          if (this.validPos(tiles[i])) {
+            var tile = this.grid.getTile(tiles[i]);
+            queue.push(tile);
+            this.visited.add(tile.pos.toString());
+            var newDis = this.distance[curTile.pos] + 1;
+            var prevDis = this.distance[tile.pos.toString()];
+
+            if (prevDis > newDis) {
+              this.distance[tile.pos.toString()] = newDis;
+              tile.assignParent(curTile);
+            }
+          }
+        }
+      }
+    }
+  }]);
+
+  return DijkstraTree;
+}();
+
+module.exports = DijkstraTree;
+
+/***/ }),
+
 /***/ "./src/js/grid.js":
 /*!************************!*\
   !*** ./src/js/grid.js ***!
@@ -547,6 +661,8 @@ var Grid = __webpack_require__(/*! ./grid.js */ "./src/js/grid.js");
 
 var Tree = __webpack_require__(/*! ./tree.js */ "./src/js/tree.js");
 
+var DijkstraTree = __webpack_require__(/*! ./dijkstra_tree.js */ "./src/js/dijkstra_tree.js");
+
 var BFS = __webpack_require__(/*! ./bfs.js */ "./src/js/bfs.js");
 
 var DFS = __webpack_require__(/*! ./dfs.js */ "./src/js/dfs.js");
@@ -566,7 +682,7 @@ var Run = /*#__PURE__*/function () {
     this.board = new Board(30, 30);
     this.grid = new Grid(30, 30);
     this.board.makeRows(this.origin, this.destination);
-    this.algorithm = "BFS";
+    this.algorithm = "dijkstra";
     this.speed = "fast";
     this.selectAlgorithm();
     this.selectSpeed();
@@ -687,7 +803,14 @@ var Run = /*#__PURE__*/function () {
 
       document.getElementsByClassName("run-path-finder")[0].addEventListener("click", function (e) {
         e.preventDefault();
-        var tree = new Tree(_this4.grid, _this4.origin, _this4.destination);
+        var tree;
+
+        if (_this4.algorithm === "dijkstra") {
+          tree = new DijkstraTree(_this4.grid, _this4.origin, _this4.destination);
+        } else {
+          tree = new Tree(_this4.grid, _this4.origin, _this4.destination);
+        }
+
         tree.createTree(tree.startTile);
 
         if (tree.solvable === false) {
